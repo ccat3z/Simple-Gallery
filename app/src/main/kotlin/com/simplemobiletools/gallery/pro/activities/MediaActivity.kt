@@ -808,8 +808,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
             finish()
         } else {
             mWasFullscreenViewOpen = true
-            val isVideo = path.isVideoFast()
-            if (isVideo) {
+            if (config.openVideosOnSeparateScreen && path.isVideoFast()) {
                 val extras = HashMap<String, Boolean>()
                 extras[SHOW_FAVORITES] = mPath == FAVORITES
                 if (path.startsWith(recycleBinPath)) {
